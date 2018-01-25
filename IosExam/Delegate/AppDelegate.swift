@@ -8,18 +8,82 @@
 
 import UIKit
 import CoreData
+import Parse
+
+//{}접는 단축키 option+command+방향키 <- / ->
+//줄맞춤 단축키 control + L
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        return true
+    var companyDic : [String : CompanyModel] = [:]
+    
+    struct TB_Company_Ko {
+        static let TABLENAME : String = "TB_Company_Ko"
+        static let CPY_BEACON_ID : String = "CPY_BEACON_ID"
+        static let CPY_TITLE : String = "CPY_TITLE"
+        static let CPY_HOMEPAGE : String! = "CPY_HOMEPAGE"
+        static let CPY_CONTACT_NUMBER : String! = "CPY_CONTACT_NUMBER"
+        static let CPY_REPRESENTATION : String! = "CPY_REPRESENTATION"
+        static let CPY_IDX : String! = "CPY_IDX"
     }
 
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        parseInit(launchOptions: launchOptions)
+        getCompanyData()
+        
+        return true
+    }
+    
+    func parseInit(launchOptions : [UIApplicationLaunchOptionsKey : Any]?) {
+        Parse.enableLocalDatastore()
+        let configuration = ParseClientConfiguration{
+            $0.applicationId = "YesdexaAZx4r86eeoyIwwGfdfOLeT2CnQKFcQ1"
+            $0.clientKey = "YesdexbeaconyxSwvy38GBFH6i1MZ2JGxfYkt2j4gaROGxy"
+            $0.server = "http://www.beaconyx.co.kr:1337/parse"
+        }
+        
+        Parse.initialize(with: configuration)
+        PFAnalytics.trackAppOpened(launchOptions: launchOptions)
+    }
+
+    func getCompanyData(){
+        
+        let query = PFQuery(className: TB_Company_Ko.TABLENAME)
+        query.order(byAscending: TB_Company_Ko.CPY_IDX)
+        
+        query.findObjectsInBackground(block: {(objects: [PFObject]?, error:Error?) in
+            if(error == nil){
+                
+                for object in objects!{
+                    let model = CompanyModel()//createContentModel
+                    
+                    model.beaconId = object.object(forKey: TB_Company_Ko.CPY_BEACON_ID) as? String
+                    
+                    model.title = object.object(forKey: TB_Company_Ko.CPY_TITLE) as? String
+                    
+                    //                    model.homePage = object.object(forKey: TB_Company_Ko.CPY_HOMEPAGE) as String
+                    //                    model.callNumber = object.object(forKey: TB_Company_Ko.CPY_CONTACT_NUMBER) as String
+                    //                    model.ceoName = object.object(forKey: TB_Company_Ko.CPY_REPRESENTATION) as String
+                    
+                    print(model.beaconId!)
+                    
+                    
+                    self.companyDic[model.beaconId!] = model
+                    
+                    //강남지팡이 비콘 잡는부분 배열 뒤 두개
+                    
+                }
+            }
+            
+            NotificationCenter.default.post(name: Notification.Name(rawValue: Key.NotificationNameKey.COMPANYDIC_KEY), object: self.companyDic)
+        })
+        
+        
+    }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
