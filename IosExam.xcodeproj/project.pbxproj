@@ -13,6 +13,14 @@
 		C4AD0D6D20195A7300A0B87E /* IosExam.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C4AD0D6B20195A7300A0B87E /* IosExam.xcdatamodeld */; };
 		C4AD0D6F20195A7300A0B87E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4AD0D6E20195A7300A0B87E /* Assets.xcassets */; };
 		C4AD0D7220195A7300A0B87E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4AD0D7020195A7300A0B87E /* LaunchScreen.storyboard */; };
+		C4AD0D7B20195DB800A0B87E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4AD0D7A20195DB800A0B87E /* SystemConfiguration.framework */; };
+		C4AD0D7D20195DC200A0B87E /* libnetwork.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C4AD0D7C20195DC200A0B87E /* libnetwork.tbd */; };
+		C4AD0D7F20195DD000A0B87E /* libnetworkextension.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C4AD0D7E20195DD000A0B87E /* libnetworkextension.tbd */; };
+		C4AD0D8120195DFF00A0B87E /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4AD0D8020195DFF00A0B87E /* NetworkExtension.framework */; };
+		C4AD0D8320195E0A00A0B87E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4AD0D8220195E0A00A0B87E /* CFNetwork.framework */; };
+		C4AD0D8520195E1800A0B87E /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C4AD0D8420195E1800A0B87E /* libsqlite3.tbd */; };
+		C4AD0D8820195E2E00A0B87E /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4AD0D8620195E2C00A0B87E /* Bolts.framework */; };
+		C4AD0D8920195E2E00A0B87E /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4AD0D8720195E2E00A0B87E /* Parse.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +32,14 @@
 		C4AD0D6E20195A7300A0B87E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4AD0D7120195A7300A0B87E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C4AD0D7320195A7300A0B87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4AD0D7A20195DB800A0B87E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		C4AD0D7C20195DC200A0B87E /* libnetwork.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libnetwork.tbd; path = usr/lib/libnetwork.tbd; sourceTree = SDKROOT; };
+		C4AD0D7E20195DD000A0B87E /* libnetworkextension.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libnetworkextension.tbd; path = usr/lib/libnetworkextension.tbd; sourceTree = SDKROOT; };
+		C4AD0D8020195DFF00A0B87E /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
+		C4AD0D8220195E0A00A0B87E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		C4AD0D8420195E1800A0B87E /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		C4AD0D8620195E2C00A0B87E /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		C4AD0D8720195E2E00A0B87E /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +47,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4AD0D8520195E1800A0B87E /* libsqlite3.tbd in Frameworks */,
+				C4AD0D8320195E0A00A0B87E /* CFNetwork.framework in Frameworks */,
+				C4AD0D8120195DFF00A0B87E /* NetworkExtension.framework in Frameworks */,
+				C4AD0D7F20195DD000A0B87E /* libnetworkextension.tbd in Frameworks */,
+				C4AD0D7D20195DC200A0B87E /* libnetwork.tbd in Frameworks */,
+				C4AD0D7B20195DB800A0B87E /* SystemConfiguration.framework in Frameworks */,
+				C4AD0D8920195E2E00A0B87E /* Parse.framework in Frameworks */,
+				C4AD0D8820195E2E00A0B87E /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +66,7 @@
 			children = (
 				C4AD0D6320195A7300A0B87E /* IosExam */,
 				C4AD0D6220195A7300A0B87E /* Products */,
+				C4AD0D7920195DB800A0B87E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +81,8 @@
 		C4AD0D6320195A7300A0B87E /* IosExam */ = {
 			isa = PBXGroup;
 			children = (
+				C4AD0D8620195E2C00A0B87E /* Bolts.framework */,
+				C4AD0D8720195E2E00A0B87E /* Parse.framework */,
 				C4AD0D6420195A7300A0B87E /* AppDelegate.swift */,
 				C4AD0D6620195A7300A0B87E /* ViewController.swift */,
 				C4AD0D6820195A7300A0B87E /* Main.storyboard */,
@@ -65,6 +92,19 @@
 				C4AD0D6B20195A7300A0B87E /* IosExam.xcdatamodeld */,
 			);
 			path = IosExam;
+			sourceTree = "<group>";
+		};
+		C4AD0D7920195DB800A0B87E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C4AD0D8420195E1800A0B87E /* libsqlite3.tbd */,
+				C4AD0D8220195E0A00A0B87E /* CFNetwork.framework */,
+				C4AD0D8020195DFF00A0B87E /* NetworkExtension.framework */,
+				C4AD0D7E20195DD000A0B87E /* libnetworkextension.tbd */,
+				C4AD0D7C20195DC200A0B87E /* libnetwork.tbd */,
+				C4AD0D7A20195DB800A0B87E /* SystemConfiguration.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,6 +320,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4RP78Z8DQG;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/IosExam",
+				);
 				INFOPLIST_FILE = IosExam/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.beaconyx.IosExam;
@@ -295,6 +339,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4RP78Z8DQG;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/IosExam",
+				);
 				INFOPLIST_FILE = IosExam/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.beaconyx.IosExam;
