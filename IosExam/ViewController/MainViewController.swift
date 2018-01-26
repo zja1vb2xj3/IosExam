@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
 
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     

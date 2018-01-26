@@ -12,27 +12,44 @@ import Parse
 
 //{}접는 단축키 option+command+방향키 <- / ->
 //줄맞춤 단축키 control + L
-
+//스마트 드래그 shift + option <- / ->
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var companyDic : [String : CompanyModel] = [:]
+    var companyDic = [String : CompanyModel]()
+    
+    var lectureModels = [LectureModel]()
+    
+    var lectureDic = [String : [LectureModel]]()
+    
+    var lectureDicKeys = [String]()
+    
+    let undefined : String = "undefined"
+    
+    struct TB_Lecture_Ko {
+        let TABLENAME : String = "TB_Lecture_Ko"
+        let LTE_SECTION : String = "LTE_SECTION"
+        let LTE_SECTION_NUMBER : String = "LTE_SECTION_NUMBER"
+        let LTE_TITLE : String = "LTE_TITLE"
+        let LTE_IDX : String = "LTE_IDX"
+    }
     
     struct TB_Company_Ko {
-        static let TABLENAME : String = "TB_Company_Ko"
-        static let CPY_BEACON_ID : String = "CPY_BEACON_ID"
-        static let CPY_TITLE : String = "CPY_TITLE"
-        static let CPY_HOMEPAGE : String! = "CPY_HOMEPAGE"
-        static let CPY_CONTACT_NUMBER : String! = "CPY_CONTACT_NUMBER"
-        static let CPY_REPRESENTATION : String! = "CPY_REPRESENTATION"
-        static let CPY_IDX : String! = "CPY_IDX"
+        let TABLENAME : String = "TB_Company_Ko"
+        let CPY_BEACON_ID : String = "CPY_BEACON_ID"
+        let CPY_TITLE : String = "CPY_TITLE"
+        let CPY_HOMEPAGE : String! = "CPY_HOMEPAGE"
+        let CPY_CONTACT_NUMBER : String! = "CPY_CONTACT_NUMBER"
+        let CPY_REPRESENTATION : String! = "CPY_REPRESENTATION"
+        let CPY_IDX : String! = "CPY_IDX"
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         parseInit(launchOptions: launchOptions)
-        getCompanyData()
+        
+        getParseLectureData()
         
         return true
     }
@@ -49,10 +66,62 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         PFAnalytics.trackAppOpened(launchOptions: launchOptions)
     }
 
-    func getCompanyData(){
+    func getParseLectureData() {
         
-        let query = PFQuery(className: TB_Company_Ko.TABLENAME)
-        query.order(byAscending: TB_Company_Ko.CPY_IDX)
+        let table = TB_Lecture_Ko()
+        
+        let query = PFQuery(className: table.TABLENAME)
+        query.order(byAscending: table.LTE_IDX)
+        
+        query.findObjectsInBackground(block: {(objects: [PFObject]?, error:Error?) in
+            if error == nil{
+                for object in objects!{
+                    let model = LectureModel()
+                    
+                    let title = object.object(forKey: table.LTE_TITLE) as? String
+                    let section = object.object(forKey: table.LTE_SECTION) as? String
+                    let sectionNumber = object.object(forKey: table.LTE_SECTION_NUMBER) as? Int
+                    
+                    if (title != self.undefined && section != self.undefined && sectionNumber != nil) {
+                        
+                        model.title = title
+                        model.section = section
+                        model.headerNumber = sectionNumber
+                        
+                        self.lectureModels.append(model)
+        
+                    }
+                }
+            }
+            //섹션들을 담을 배열 생성
+            var sections = [String]()
+            
+            for model in self.lectureModels{
+                sections.append(model.section!)
+            }
+            //중복제거
+            let keys = Set(sections).sorted()
+            
+            for key in keys{
+                var sectionModel = [LectureModel]()//같은 섹션모델들을 담을 array
+                
+                for lectureModel in self.lectureModels{
+                    if key == lectureModel.section{ // 키와 모델의 섹션과 같다면
+                        sectionModel.append(lectureModel)//같은 모델만 append
+                    }
+                }
+                
+                self.lectureDic[key] = sectionModel// dictionary에 해당 key와 value 할당
+            }
+            
+        })
+        
+    }
+    
+    func getParseCompanyData(){
+        
+        let query = PFQuery(className: TB_Company_Ko().TABLENAME)
+        query.order(byAscending: TB_Company_Ko().CPY_IDX)
         
         query.findObjectsInBackground(block: {(objects: [PFObject]?, error:Error?) in
             if(error == nil){
@@ -60,9 +129,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 for object in objects!{
                     let model = CompanyModel()//createContentModel
                     
-                    model.beaconId = object.object(forKey: TB_Company_Ko.CPY_BEACON_ID) as? String
+                    model.beaconId = object.object(forKey: TB_Company_Ko().CPY_BEACON_ID) as? String
                     
-                    model.title = object.object(forKey: TB_Company_Ko.CPY_TITLE) as? String
+                    model.title = object.object(forKey: TB_Company_Ko().CPY_TITLE) as? String
                     
                     //                    model.homePage = object.object(forKey: TB_Company_Ko.CPY_HOMEPAGE) as String
                     //                    model.callNumber = object.object(forKey: TB_Company_Ko.CPY_CONTACT_NUMBER) as String
