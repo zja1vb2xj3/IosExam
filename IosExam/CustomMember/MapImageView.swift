@@ -28,14 +28,26 @@ class MapImageView: UIImageView {
     }
     
     override func draw(_ rect: CGRect) {
-        self.markerButton.append(UIButton.init(type: .system))
-        self.markerButton[0] = UIButton(frame: CGRect(x: rect.size.width/2, y: rect.size.height/2, width: 50, height: 50))
         
+        for i:Int in 0 ..< 2{
+            let initValue : CGFloat = CGFloat(2 + i)
+            
+            self.markerButton.append(UIButton.init(type: .system))
+            
+            self.markerButton[i] = UIButton(frame: CGRect(x: rect.size.width / initValue, y: rect.size.height / initValue, width: 50, height: 50))
+            
+            self.markerButton[i].setImage(UIImage(named: "normal_map_marker"), for: .normal)
+            
+            self.markerButton[i].addTarget(self, action: #selector(self.markerButtonAction(sender:)), for: .touchDown)
+            
+            self.addSubview(markerButton[i])
+        }
         
-        self.markerButton[0].setImage(UIImage(named: "normal_map_marker"), for: .normal)
-        
-        
-        self.addSubview(markerButton[0])
+        self.isUserInteractionEnabled = true
+    }
+    
+    @objc func markerButtonAction(sender: UIButton!){
+        NSLog("button Click")
     }
 
 }
