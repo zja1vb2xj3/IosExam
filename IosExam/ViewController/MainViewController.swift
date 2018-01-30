@@ -15,9 +15,16 @@ class MainViewController: UIViewController {
     //뷰컨트롤러 클래스가 생성 될 때
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        ////
+        
+        initNavigationItem()
+        
     }
+    
+    func initNavigationItem(){
+
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
     
     //화면에 나타난 직후
     override func viewDidAppear(_ animated: Bool){

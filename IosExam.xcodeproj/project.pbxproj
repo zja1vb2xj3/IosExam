@@ -13,6 +13,11 @@
 		C44C4D8320197FBC00E0FA0C /* backIcon_1x.png in Resources */ = {isa = PBXBuildFile; fileRef = C44C4D8020197FBB00E0FA0C /* backIcon_1x.png */; };
 		C44C4D8420197FBC00E0FA0C /* backIcon_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C44C4D8120197FBB00E0FA0C /* backIcon_2x.png */; };
 		C44C4D8520197FBC00E0FA0C /* backIcon_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C44C4D8220197FBB00E0FA0C /* backIcon_3x.png */; };
+		C4682B0C202006A5004FC94A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4682B0B202006A5004FC94A /* MapViewController.swift */; };
+		C4682B0F2020092E004FC94A /* MapImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4682B0E2020092E004FC94A /* MapImageView.swift */; };
+		C4682B112020104E004FC94A /* map_img.png in Resources */ = {isa = PBXBuildFile; fileRef = C4682B102020104E004FC94A /* map_img.png */; };
+		C4682B1520203240004FC94A /* normal_map_marker.png in Resources */ = {isa = PBXBuildFile; fileRef = C4682B1420203240004FC94A /* normal_map_marker.png */; };
+		C4682B172020324A004FC94A /* react_map_marker.png in Resources */ = {isa = PBXBuildFile; fileRef = C4682B162020324A004FC94A /* react_map_marker.png */; };
 		C4AD0D6520195A7300A0B87E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AD0D6420195A7300A0B87E /* AppDelegate.swift */; };
 		C4AD0D6720195A7300A0B87E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AD0D6620195A7300A0B87E /* MainViewController.swift */; };
 		C4AD0D6A20195A7300A0B87E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4AD0D6820195A7300A0B87E /* Main.storyboard */; };
@@ -39,6 +44,11 @@
 		C44C4D8020197FBB00E0FA0C /* backIcon_1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backIcon_1x.png; sourceTree = "<group>"; };
 		C44C4D8120197FBB00E0FA0C /* backIcon_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backIcon_2x.png; sourceTree = "<group>"; };
 		C44C4D8220197FBB00E0FA0C /* backIcon_3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backIcon_3x.png; sourceTree = "<group>"; };
+		C4682B0B202006A5004FC94A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		C4682B0E2020092E004FC94A /* MapImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapImageView.swift; sourceTree = "<group>"; };
+		C4682B102020104E004FC94A /* map_img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_img.png; sourceTree = "<group>"; };
+		C4682B1420203240004FC94A /* normal_map_marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = normal_map_marker.png; sourceTree = "<group>"; };
+		C4682B162020324A004FC94A /* react_map_marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = react_map_marker.png; sourceTree = "<group>"; };
 		C4AD0D6120195A7300A0B87E /* IosExam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IosExam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4AD0D6420195A7300A0B87E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4AD0D6620195A7300A0B87E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +103,7 @@
 			children = (
 				C4AD0D6620195A7300A0B87E /* MainViewController.swift */,
 				C44C4D7720197D5000E0FA0C /* TableViewController.swift */,
+				C4682B0B202006A5004FC94A /* MapViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -108,11 +119,22 @@
 		C44C4D7920197EA100E0FA0C /* Resouces */ = {
 			isa = PBXGroup;
 			children = (
+				C4682B102020104E004FC94A /* map_img.png */,
 				C44C4D8020197FBB00E0FA0C /* backIcon_1x.png */,
 				C44C4D8120197FBB00E0FA0C /* backIcon_2x.png */,
 				C44C4D8220197FBB00E0FA0C /* backIcon_3x.png */,
+				C4682B1420203240004FC94A /* normal_map_marker.png */,
+				C4682B162020324A004FC94A /* react_map_marker.png */,
 			);
 			path = Resouces;
+			sourceTree = "<group>";
+		};
+		C4682B0D202008C0004FC94A /* CustomMember */ = {
+			isa = PBXGroup;
+			children = (
+				C4682B0E2020092E004FC94A /* MapImageView.swift */,
+			);
+			path = CustomMember;
 			sourceTree = "<group>";
 		};
 		C4AD0D5820195A7300A0B87E = {
@@ -135,6 +157,7 @@
 		C4AD0D6320195A7300A0B87E /* IosExam */ = {
 			isa = PBXGroup;
 			children = (
+				C4682B0D202008C0004FC94A /* CustomMember */,
 				C4020D192019C036002D8535 /* TableViewCell */,
 				C44C4D7920197EA100E0FA0C /* Resouces */,
 				C44C4D742019687000E0FA0C /* Delegate */,
@@ -244,9 +267,12 @@
 			files = (
 				C4AD0D7220195A7300A0B87E /* LaunchScreen.storyboard in Resources */,
 				C4AD0D6F20195A7300A0B87E /* Assets.xcassets in Resources */,
+				C4682B172020324A004FC94A /* react_map_marker.png in Resources */,
 				C4AD0D6A20195A7300A0B87E /* Main.storyboard in Resources */,
 				C44C4D8520197FBC00E0FA0C /* backIcon_3x.png in Resources */,
+				C4682B1520203240004FC94A /* normal_map_marker.png in Resources */,
 				C44C4D8320197FBC00E0FA0C /* backIcon_1x.png in Resources */,
+				C4682B112020104E004FC94A /* map_img.png in Resources */,
 				C44C4D8420197FBC00E0FA0C /* backIcon_2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,8 +288,10 @@
 				C4020D1B2019C0A2002D8535 /* TableViewCell.swift in Sources */,
 				C44C4D7820197D5000E0FA0C /* TableViewController.swift in Sources */,
 				C4AD0D8E20195EE200A0B87E /* Key.swift in Sources */,
+				C4682B0C202006A5004FC94A /* MapViewController.swift in Sources */,
 				C44C4D7620196FCF00E0FA0C /* LectureModel.swift in Sources */,
 				C4AD0D6D20195A7300A0B87E /* IosExam.xcdatamodeld in Sources */,
+				C4682B0F2020092E004FC94A /* MapImageView.swift in Sources */,
 				C4AD0D6520195A7300A0B87E /* AppDelegate.swift in Sources */,
 				C4AD0D9120195F2400A0B87E /* CompanyModel.swift in Sources */,
 			);

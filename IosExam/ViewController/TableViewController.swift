@@ -27,6 +27,8 @@ class TableViewController: UIViewController , UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        initNavigationItem()
+        
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
@@ -38,6 +40,16 @@ class TableViewController: UIViewController , UITableViewDataSource, UITableView
             sections.append(setionItems(sectionName: key, sectionModels: models))
         }
 
+    }
+
+    
+    func initNavigationItem(){
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        
+        self.navigationController?.navigationBar.barTintColor = UIColor.red
+        
+       
+//        self.navigationItem.titleView = label
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
