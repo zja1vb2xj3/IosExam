@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE7E3430F97C9221B493B4BF /* Pods_IosExam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0957CBCFE24BAA6657AE618 /* Pods_IosExam.framework */; };
 		C4020D1B2019C0A2002D8535 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4020D1A2019C0A2002D8535 /* TableViewCell.swift */; };
 		C44C4D7620196FCF00E0FA0C /* LectureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44C4D7520196FCF00E0FA0C /* LectureModel.swift */; };
 		C44C4D7820197D5000E0FA0C /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44C4D7720197D5000E0FA0C /* TableViewController.swift */; };
@@ -18,6 +19,10 @@
 		C4682B112020104E004FC94A /* map_img.png in Resources */ = {isa = PBXBuildFile; fileRef = C4682B102020104E004FC94A /* map_img.png */; };
 		C4682B1520203240004FC94A /* normal_map_marker.png in Resources */ = {isa = PBXBuildFile; fileRef = C4682B1420203240004FC94A /* normal_map_marker.png */; };
 		C4682B172020324A004FC94A /* react_map_marker.png in Resources */ = {isa = PBXBuildFile; fileRef = C4682B162020324A004FC94A /* react_map_marker.png */; };
+		C4682B1920205405004FC94A /* ToastMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4682B1820205405004FC94A /* ToastMessage.swift */; };
+		C491D6BB202186810097E0D3 /* BeaconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C491D6BA202186810097E0D3 /* BeaconModel.swift */; };
+		C491D6BD2021889E0097E0D3 /* LoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C491D6BC2021889E0097E0D3 /* LoadViewController.swift */; };
+		C4A8089620299776007D5812 /* marker_1.png in Resources */ = {isa = PBXBuildFile; fileRef = C4A8089520299776007D5812 /* marker_1.png */; };
 		C4AD0D6520195A7300A0B87E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AD0D6420195A7300A0B87E /* AppDelegate.swift */; };
 		C4AD0D6720195A7300A0B87E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AD0D6620195A7300A0B87E /* MainViewController.swift */; };
 		C4AD0D6A20195A7300A0B87E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4AD0D6820195A7300A0B87E /* Main.storyboard */; };
@@ -38,6 +43,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		32BEE90408C55D90DDD8C9FF /* Pods-IosExam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IosExam.release.xcconfig"; path = "Pods/Target Support Files/Pods-IosExam/Pods-IosExam.release.xcconfig"; sourceTree = "<group>"; };
+		42233486F5A9AD0F58316F99 /* Pods-IosExam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IosExam.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IosExam/Pods-IosExam.debug.xcconfig"; sourceTree = "<group>"; };
+		C0957CBCFE24BAA6657AE618 /* Pods_IosExam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IosExam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4020D1A2019C0A2002D8535 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		C44C4D7520196FCF00E0FA0C /* LectureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureModel.swift; sourceTree = "<group>"; };
 		C44C4D7720197D5000E0FA0C /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +57,10 @@
 		C4682B102020104E004FC94A /* map_img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_img.png; sourceTree = "<group>"; };
 		C4682B1420203240004FC94A /* normal_map_marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = normal_map_marker.png; sourceTree = "<group>"; };
 		C4682B162020324A004FC94A /* react_map_marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = react_map_marker.png; sourceTree = "<group>"; };
+		C4682B1820205405004FC94A /* ToastMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastMessage.swift; sourceTree = "<group>"; };
+		C491D6BA202186810097E0D3 /* BeaconModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconModel.swift; sourceTree = "<group>"; };
+		C491D6BC2021889E0097E0D3 /* LoadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadViewController.swift; sourceTree = "<group>"; };
+		C4A8089520299776007D5812 /* marker_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marker_1.png; sourceTree = "<group>"; };
 		C4AD0D6120195A7300A0B87E /* IosExam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IosExam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4AD0D6420195A7300A0B87E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4AD0D6620195A7300A0B87E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +96,7 @@
 				C4AD0D7B20195DB800A0B87E /* SystemConfiguration.framework in Frameworks */,
 				C4AD0D8920195E2E00A0B87E /* Parse.framework in Frameworks */,
 				C4AD0D8820195E2E00A0B87E /* Bolts.framework in Frameworks */,
+				AE7E3430F97C9221B493B4BF /* Pods_IosExam.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +117,7 @@
 				C4AD0D6620195A7300A0B87E /* MainViewController.swift */,
 				C44C4D7720197D5000E0FA0C /* TableViewController.swift */,
 				C4682B0B202006A5004FC94A /* MapViewController.swift */,
+				C491D6BC2021889E0097E0D3 /* LoadViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -125,6 +139,7 @@
 				C44C4D8220197FBB00E0FA0C /* backIcon_3x.png */,
 				C4682B1420203240004FC94A /* normal_map_marker.png */,
 				C4682B162020324A004FC94A /* react_map_marker.png */,
+				C4A8089520299776007D5812 /* marker_1.png */,
 			);
 			path = Resouces;
 			sourceTree = "<group>";
@@ -133,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				C4682B0E2020092E004FC94A /* MapImageView.swift */,
+				C4682B1820205405004FC94A /* ToastMessage.swift */,
 			);
 			path = CustomMember;
 			sourceTree = "<group>";
@@ -143,6 +159,7 @@
 				C4AD0D6320195A7300A0B87E /* IosExam */,
 				C4AD0D6220195A7300A0B87E /* Products */,
 				C4AD0D7920195DB800A0B87E /* Frameworks */,
+				F1A8F7D92122608E963E5197 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -185,6 +202,7 @@
 				C4AD0D7E20195DD000A0B87E /* libnetworkextension.tbd */,
 				C4AD0D7C20195DC200A0B87E /* libnetwork.tbd */,
 				C4AD0D7A20195DB800A0B87E /* SystemConfiguration.framework */,
+				C0957CBCFE24BAA6657AE618 /* Pods_IosExam.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -202,8 +220,18 @@
 			children = (
 				C4AD0D9020195F2400A0B87E /* CompanyModel.swift */,
 				C44C4D7520196FCF00E0FA0C /* LectureModel.swift */,
+				C491D6BA202186810097E0D3 /* BeaconModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		F1A8F7D92122608E963E5197 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				42233486F5A9AD0F58316F99 /* Pods-IosExam.debug.xcconfig */,
+				32BEE90408C55D90DDD8C9FF /* Pods-IosExam.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,9 +241,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C4AD0D7620195A7300A0B87E /* Build configuration list for PBXNativeTarget "IosExam" */;
 			buildPhases = (
+				5704D8C2BB5F6A85E0D87843 /* [CP] Check Pods Manifest.lock */,
 				C4AD0D5D20195A7300A0B87E /* Sources */,
 				C4AD0D5E20195A7300A0B87E /* Frameworks */,
 				C4AD0D5F20195A7300A0B87E /* Resources */,
+				81CFD0577073F51350D18D0A /* [CP] Embed Pods Frameworks */,
+				6D3AB76F0EEA3EFF933A010C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -274,10 +305,65 @@
 				C44C4D8320197FBC00E0FA0C /* backIcon_1x.png in Resources */,
 				C4682B112020104E004FC94A /* map_img.png in Resources */,
 				C44C4D8420197FBC00E0FA0C /* backIcon_2x.png in Resources */,
+				C4A8089620299776007D5812 /* marker_1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5704D8C2BB5F6A85E0D87843 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IosExam-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6D3AB76F0EEA3EFF933A010C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IosExam/Pods-IosExam-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		81CFD0577073F51350D18D0A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-IosExam/Pods-IosExam-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GBDeviceInfo/GBDeviceInfo.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GBDeviceInfo.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IosExam/Pods-IosExam-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C4AD0D5D20195A7300A0B87E /* Sources */ = {
@@ -287,11 +373,14 @@
 				C4AD0D6720195A7300A0B87E /* MainViewController.swift in Sources */,
 				C4020D1B2019C0A2002D8535 /* TableViewCell.swift in Sources */,
 				C44C4D7820197D5000E0FA0C /* TableViewController.swift in Sources */,
+				C4682B1920205405004FC94A /* ToastMessage.swift in Sources */,
+				C491D6BD2021889E0097E0D3 /* LoadViewController.swift in Sources */,
 				C4AD0D8E20195EE200A0B87E /* Key.swift in Sources */,
 				C4682B0C202006A5004FC94A /* MapViewController.swift in Sources */,
 				C44C4D7620196FCF00E0FA0C /* LectureModel.swift in Sources */,
 				C4AD0D6D20195A7300A0B87E /* IosExam.xcdatamodeld in Sources */,
 				C4682B0F2020092E004FC94A /* MapImageView.swift in Sources */,
+				C491D6BB202186810097E0D3 /* BeaconModel.swift in Sources */,
 				C4AD0D6520195A7300A0B87E /* AppDelegate.swift in Sources */,
 				C4AD0D9120195F2400A0B87E /* CompanyModel.swift in Sources */,
 			);
@@ -428,6 +517,7 @@
 		};
 		C4AD0D7720195A7300A0B87E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42233486F5A9AD0F58316F99 /* Pods-IosExam.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -447,6 +537,7 @@
 		};
 		C4AD0D7820195A7300A0B87E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32BEE90408C55D90DDD8C9FF /* Pods-IosExam.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

@@ -12,8 +12,6 @@ class TableViewController: UIViewController , UITableViewDataSource, UITableView
 
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    var names = ["Vegetables": ["Tomato", "Potato", "Lettuce"], "Fruits": ["Apple", "Banana"]]
-    
     @IBOutlet weak var tableView: UITableView!
     
     struct setionItems {
@@ -37,6 +35,7 @@ class TableViewController: UIViewController , UITableViewDataSource, UITableView
         let sortedKeyDic = dic.sorted(by: {$0.0 < $1.0})
         
         for (key, models) in sortedKeyDic{
+            //섹션이름과 해당 모델을 대입
             sections.append(setionItems(sectionName: key, sectionModels: models))
         }
 
@@ -67,6 +66,9 @@ class TableViewController: UIViewController , UITableViewDataSource, UITableView
         
         cell.textView.text = sections[indexPath.section].sectionModels[indexPath.row].title
         
+        //터치 색상 없애기
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
+        
         return cell//cell
     }
     
@@ -77,10 +79,32 @@ class TableViewController: UIViewController , UITableViewDataSource, UITableView
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let rowHeight : CGFloat = 100
         
-        return 100
+        return rowHeight
     }
-
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let title : String = sections[indexPath.section].sectionModels[indexPath.row].title as String!
+        
+        NSLog("title \(title)")
+        
+        //토스트 메세지 생성
+        let toastMessage = ToastMessage(viewWidth: self.view.frame.width, viewHeight: self.view.frame.height)
+        
+        let toast : UILabel = toastMessage.makeToast(message: title)
+        
+        self.view.addSubview(toast)
+        
+        UIView.animate(withDuration:4.0, delay: 0.1, options: .curveEaseOut, animations: {
+            toast.alpha = 0.0
+        }, completion:{(isCompleted) in
+            toast.removeFromSuperview()
+        })
+        
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

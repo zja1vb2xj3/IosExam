@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import Parse
+import GBDeviceInfo
 
 //{}접는 단축키 option+command+방향키 <- / ->
 //줄맞춤 단축키 control + L
@@ -17,7 +18,8 @@ import Parse
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var companyDic = [String : CompanyModel]()
+    
+    var companyDic = [String : [CompanyModel]]()
     
     var lectureModels = [LectureModel]()
     
@@ -26,6 +28,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var lectureDicKeys = [String]()
     
     let undefined : String = "undefined"
+    
+    var beaconModelsDic = [String : BeaconModel]()
+    var beaconModels = [BeaconModel]()
+    
+    // true : ko
+    var languageSign = Bool()
     
     struct TB_Lecture_Ko {
         let TABLENAME : String = "TB_Lecture_Ko"
@@ -44,14 +52,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let CPY_REPRESENTATION : String! = "CPY_REPRESENTATION"
         let CPY_IDX : String! = "CPY_IDX"
     }
+    
+    struct TB_Beacon_Contents_Ko{
+        let TABLENAME : String = "TB_Beacon_Contents_Ko"
+        let BCS_IDX : String = "BCS_IDX"
+        let BCS_BEACON_ID : String = "BCS_BEACON_ID"
+        let BCS_ISE_X_iOS_1 : String = "BCS_ISE_X_iOS_1"
+        let BCS_ISE_Y_iOS_1 : String = "BCS_ISE_Y_iOS_1"
+        let BCS_ISE_X_iOS_2 : String = "BCS_ISE_X_iOS_2"
+        let BCS_ISE_Y_iOS_2 : String = "BCS_ISE_Y_iOS_2"
+        let BCS_ISE_X_iOS_3 : String = "BCS_ISE_X_iOS_3"
+        let BCS_ISE_Y_iOS_3 : String = "BCS_ISE_Y_iOS_3"
+        let BCS_PLACE_TYPE : String = "BCS_PLACE_TYPE"
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    
+        self.languageSign = checkUserLanguage()
         
         parseInit(launchOptions: launchOptions)
+    
+        let deviceInfo = GBDeviceInfo()
         
-        getParseLectureData()
         
+        let model = deviceInfo.modelString
+        let ppi = deviceInfo.displayInfo.pixelsPerInch
+        
+        print("model : \(String(describing: model))")
+        print("ppi : \(ppi)")
         return true
+    }
+    
+    func checkUserLanguage() -> Bool {
+        let lang : String = NSLocale.preferredLanguages[0]
+        let langArr : [String] = lang.components(separatedBy: "-")
+        
+        if langArr[0] == "ko"{
+            return true
+        }
+        
+        else{
+            return false
+        }
     }
     
     func parseInit(launchOptions : [UIApplicationLaunchOptionsKey : Any]?) {
@@ -65,6 +107,66 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.initialize(with: configuration)
         PFAnalytics.trackAppOpened(launchOptions: launchOptions)
     }
+    
+    func getParseBeaconContentData(viewWidth : CGFloat) {
+        
+        let table = TB_Beacon_Contents_Ko()
+        
+        let query = PFQuery(className: table.TABLENAME)
+        query.order(byAscending: table.BCS_IDX)
+        
+        var xColumnName = String()
+        var yColumnName = String()
+        
+        switch viewWidth{
+        case 320:
+            xColumnName = table.BCS_ISE_X_iOS_1
+            yColumnName = table.BCS_ISE_Y_iOS_1
+            break
+        case 375:
+            xColumnName = table.BCS_ISE_X_iOS_2
+            yColumnName = table.BCS_ISE_Y_iOS_2
+            break
+        case 414:
+            xColumnName = table.BCS_ISE_X_iOS_3
+            yColumnName = table.BCS_ISE_Y_iOS_3
+            break
+        default:
+            break
+        }
+        
+        query.findObjectsInBackground(block: {(objects: [PFObject]?, error:Error?) in
+            if error == nil{
+                for object in objects!{
+                    let model = BeaconModel()
+                    
+                    let beaconID = object.object(forKey: table.BCS_BEACON_ID) as? String
+                    let xPosition = object.object(forKey: xColumnName) as? CGFloat
+                    let yPosition = object.object(forKey: yColumnName) as? CGFloat
+                    let type = object.object(forKey: table.BCS_PLACE_TYPE) as? String
+                    
+                    if (xPosition != 0.0 && yPosition != 0.0){
+                        model.beaconId = beaconID
+                        model.positionX = xPosition
+                        model.positionY = yPosition
+                        
+                        if(type == "In_Default"){
+                            model.type = "n"
+                        }
+                        else{
+                            model.type = "e"
+                        }
+                        
+                        self.beaconModels.append(model)
+                    }
+//                    self.beaconModelsDic[model.beaconId] = model
+                }//end for
+            }//end check nil
+            
+        })
+        
+    }
+
 
     func getParseLectureData() {
         
@@ -140,7 +242,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     print(model.beaconId!)
                     
                     
-                    self.companyDic[model.beaconId!] = model
+//                    self.companyDic[model.beaconId!] = model
                     
                     //강남지팡이 비콘 잡는부분 배열 뒤 두개
                     
